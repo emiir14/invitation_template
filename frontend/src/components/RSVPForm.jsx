@@ -1,0 +1,224 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Heart, Send } from 'lucide-react';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Label } from './ui/label';
+import { useToast } from '../hooks/use-toast';
+
+const RSVPForm = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    attending: null,
+    comment: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleAttendingChange = (value) => {
+    setFormData({
+      ...formData,
+      attending: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!formData.name.trim()) {
+      toast({
+        title: "Please enter your name",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (formData.attending === null) {
+      toast({
+        title: "Please let us know if you're attending",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "RSVP Submitted!",
+        description: `Thank you ${formData.name}! We've received your response.`,
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        attending: null,
+        comment: ''
+      });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  return (
+    <section id="rsvp" className="py-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-4">
+            Will You Join Us?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Your presence would make our special day even more meaningful
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-rose-100">
+            <div className="text-center mb-8">
+              <Heart className="w-12 h-12 text-rose-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-serif text-gray-800">RSVP</h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name Field */}
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-gray-700 font-medium">
+                  Your Name *
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your full name"
+                  className="border-gray-200 focus:border-rose-500 focus:ring-rose-500"
+                />
+              </div>
+
+              {/* Attendance Selection */}
+              <div className="space-y-4">
+                <Label className="text-gray-700 font-medium">
+                  Will you be attending? *
+                </Label>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <motion.button
+                    type="button"
+                    onClick={() => handleAttendingChange(true)}
+                    className={`flex-1 p-4 rounded-lg border-2 transition-all duration-300 ${
+                      formData.attending === true
+                        ? 'border-rose-500 bg-rose-50 text-rose-700'
+                        : 'border-gray-200 hover:border-rose-300 text-gray-700'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="text-center">
+                      <div className="text-2xl mb-2">✓</div>
+                      <div className="font-medium">Yes, I'll be there!</div>
+                    </div>
+                  </motion.button>
+
+                  <motion.button
+                    type="button"
+                    onClick={() => handleAttendingChange(false)}
+                    className={`flex-1 p-4 rounded-lg border-2 transition-all duration-300 ${
+                      formData.attending === false
+                        ? 'border-gray-500 bg-gray-50 text-gray-700'
+                        : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="text-center">
+                      <div className="text-2xl mb-2">✗</div>
+                      <div className="font-medium">Sorry, can't make it</div>
+                    </div>
+                  </motion.button>
+                </div>
+              </div>
+
+              {/* Comment Field */}
+              <div className="space-y-2">
+                <Label htmlFor="comment" className="text-gray-700 font-medium">
+                  Additional Comments
+                </Label>
+                <Textarea
+                  id="comment"
+                  name="comment"
+                  value={formData.comment}
+                  onChange={handleInputChange}
+                  placeholder="Any special messages, dietary restrictions, or questions..."
+                  rows={4}
+                  className="border-gray-200 focus:border-rose-500 focus:ring-rose-500 resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center space-x-2">
+                      <Send size={18} />
+                      <span>Send RSVP</span>
+                    </div>
+                  )}
+                </Button>
+              </motion.div>
+            </form>
+          </div>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <p className="text-gray-600 text-sm">
+            Please respond by <strong>March 15, 2026</strong>
+          </p>
+          <p className="text-gray-500 text-sm mt-2">
+            For questions, contact us at sofiandcriss@wedding.com
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default RSVPForm;
