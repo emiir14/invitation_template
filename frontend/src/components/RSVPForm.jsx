@@ -6,6 +6,10 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const RSVPForm = () => {
   const { toast } = useToast();
@@ -51,21 +55,56 @@ const RSVPForm = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "RSVP Submitted!",
-        description: `Thank you ${formData.name}! We've received your response.`,
+    try {
+      // Submit RSVP to backend
+      const response = await axios.post(`${API}/rsvp`, {
+        name: formData.name.trim(),
+        attending: formData.attending,
+        comment: formData.comment.trim() || null
       });
+
+      if (response.status === 200) {
+        // Success
+        toast({
+          title: "RSVP Submitted!",
+          description: `Thank you ${formData.name}! We've received your response.`,
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          attending: null,
+          comment: ''
+        });
+      }
       
-      // Reset form
-      setFormData({
-        name: '',
-        attending: null,
-        comment: ''
-      });
+    } catch (error) {
+      console.error('RSVP submission error:', error);
+      
+      // Handle different error types
+      if (error.response) {
+        const errorMessage = error.response.data?.error || 'Failed to submit RSVP';
+        toast({
+          title: "Submission Failed",
+          description: errorMessage,
+          variant: "destructive"
+        });
+      } else if (error.request) {
+        toast({
+          title: "Connection Error",
+          description: "Please check your internet connection and try again.",
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "An unexpected error occurred. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -113,6 +152,7 @@ const RSVPForm = () => {
                   onChange={handleInputChange}
                   placeholder="Enter your full name"
                   className="border-gray-200 focus:border-rose-500 focus:ring-rose-500"
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -125,13 +165,14 @@ const RSVPForm = () => {
                   <motion.button
                     type="button"
                     onClick={() => handleAttendingChange(true)}
+                    disabled={isSubmitting}
                     className={`flex-1 p-4 rounded-lg border-2 transition-all duration-300 ${
                       formData.attending === true
                         ? 'border-rose-500 bg-rose-50 text-rose-700'
                         : 'border-gray-200 hover:border-rose-300 text-gray-700'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    } ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">✓</div>
@@ -142,13 +183,14 @@ const RSVPForm = () => {
                   <motion.button
                     type="button"
                     onClick={() => handleAttendingChange(false)}
+                    disabled={isSubmitting}
                     className={`flex-1 p-4 rounded-lg border-2 transition-all duration-300 ${
                       formData.attending === false
                         ? 'border-gray-500 bg-gray-50 text-gray-700'
                         : 'border-gray-200 hover:border-gray-300 text-gray-700'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    } ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">✗</div>
@@ -171,18 +213,19 @@ const RSVPForm = () => {
                   placeholder="Any special messages, dietary restrictions, or questions..."
                   rows={4}
                   className="border-gray-200 focus:border-rose-500 focus:ring-rose-500 resize-none"
+                  disabled={isSubmitting}
                 />
               </div>
 
               {/* Submit Button */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               >
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center space-x-2">
