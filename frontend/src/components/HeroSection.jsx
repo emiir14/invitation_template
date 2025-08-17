@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
 import EnvelopeAnimation from './EnvelopeAnimation';
 import ParticleBackground from './ParticleBackground';
+import WeddingCountdown from './WeddingCountdown';
 import { weddingData } from '../mock';
 
 const HeroSection = () => {
@@ -18,17 +19,17 @@ const HeroSection = () => {
       id="home" 
       className="min-h-screen relative overflow-hidden"
     >
-      {/* Dancing Background Video/Image */}
+      {/* Dancing GIF Background */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1639330693395-0944b5bef0c7?w=1920&q=80')`,
-            filter: 'blur(1px) brightness(0.8)'
+            backgroundImage: `url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWF4cWdkZHBhNXB4ZjBxbXJ3eW93ZWk5ZjI5cHFwbXNlbnNrdGdjZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26FLgGTPUDH6UGAbm/giphy.gif')`,
+            filter: 'blur(1px) brightness(0.7)'
           }}
         />
         {/* Gradient overlay to ensure readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-300/80 via-pink-300/80 to-orange-200/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-300/85 via-pink-300/85 to-orange-200/85"></div>
       </div>
 
       {/* Particle Background - Higher z-index to float above background */}
@@ -53,7 +54,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-white/95 text-lg font-light tracking-wide mb-4 drop-shadow-sm"
               >
-                You're Invited to Celebrate
+                Estás Invitado a Celebrar
               </motion.p>
               
               <motion.h1
@@ -73,7 +74,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.9 }}
                 className="text-white/90 text-xl font-light drop-shadow-sm"
               >
-                are getting married
+                se van a casar
               </motion.p>
             </div>
 
@@ -105,11 +106,14 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
+            {/* Countdown */}
+            <WeddingCountdown targetDate={weddingData.date.raw} />
+
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
             >
               <motion.button
                 onClick={scrollToRSVP}
@@ -117,7 +121,7 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                RSVP Now
+                Confirmar Asistencia
               </motion.button>
             </motion.div>
           </motion.div>
@@ -137,7 +141,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
+          transition={{ delay: 2.5 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
@@ -145,7 +149,7 @@ const HeroSection = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="text-white/80 text-center drop-shadow-sm"
           >
-            <p className="text-sm mb-2">Scroll to explore</p>
+            <p className="text-sm mb-2">Desliza para explorar</p>
             <div className="w-6 h-10 border-2 border-white/60 rounded-full mx-auto relative">
               <motion.div
                 animate={{ y: [0, 12, 0] }}
