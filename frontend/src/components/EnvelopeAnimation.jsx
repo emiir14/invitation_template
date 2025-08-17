@@ -96,7 +96,7 @@ const EnvelopeAnimation = () => {
                 {weddingData.couple.bride} & {weddingData.couple.groom}
               </div>
               <div className="text-sm text-gray-600 mb-4 font-light">
-                request the pleasure of your presence
+                solicitan el placer de su presencia
               </div>
               <div className="text-xl font-medium text-rose-600 mb-2">
                 {weddingData.date.formatted}
@@ -105,7 +105,7 @@ const EnvelopeAnimation = () => {
                 {weddingData.date.day}
               </div>
               <div className="mt-6 text-xs text-rose-400 animate-pulse">
-                Click to {isOpened ? 'close' : 'open'} invitation
+                Haz clic para {isOpened ? 'cerrar' : 'abrir'} la invitación
               </div>
             </motion.div>
           </animated.div>
@@ -199,7 +199,7 @@ const EnvelopeAnimation = () => {
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          {isOpened ? 'Click envelope to close' : 'Click envelope to reveal our invitation'}
+          {isOpened ? 'Haz clic en el sobre para cerrar' : 'Haz clic en el sobre para revelar nuestra invitación'}
         </motion.p>
         <motion.div
           className="mt-3 text-white/70 text-2xl"

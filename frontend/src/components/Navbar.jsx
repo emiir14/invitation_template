@@ -15,10 +15,10 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#story', label: 'Our Story' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#rsvp', label: 'RSVP' }
+    { href: '#home', label: 'Inicio' },
+    { href: '#story', label: 'Nuestra Historia' },
+    { href: '#gallery', label: 'Galería' },
+    { href: '#rsvp', label: 'Confirmar Asistencia' }
   ];
 
   const scrollToSection = (href) => {

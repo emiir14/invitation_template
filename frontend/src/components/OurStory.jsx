@@ -11,32 +11,32 @@ const OurStory = () => {
   const timeline = [
     {
       year: "2020",
-      title: "First Meeting",
-      description: "We met at a coffee shop on a rainy Tuesday morning. Little did we know it would change our lives forever.",
+      title: "Primer Encuentro",
+      description: "Nos conocimos en una cafetería en una mañana lluviosa de martes. Sin saber que cambiaría nuestras vidas para siempre.",
       icon: "☕"
     },
     {
       year: "2021",
-      title: "First Date",
-      description: "Our first official date was at the local botanical garden. We spent hours talking and walking among the flowers.",
+      title: "Primera Cita",
+      description: "Nuestra primera cita oficial fue en el jardín botánico local. Pasamos horas conversando y caminando entre las flores.",
       icon: "🌸"
     },
     {
       year: "2023",
-      title: "Moving In",
-      description: "We decided to take the next step and move in together. Building our little home filled with love and laughter.",
+      title: "Viviendo Juntos",
+      description: "Decidimos dar el siguiente paso y mudarnos juntos. Construyendo nuestro pequeño hogar lleno de amor y risas.",
       icon: "🏠"
     },
     {
       year: "2024",
-      title: "The Proposal",
-      description: "Under the starlit sky at our favorite hiking spot, Criss got down on one knee and asked Sofi to be his forever.",
+      title: "La Propuesta",
+      description: "Bajo el cielo estrellado en nuestro lugar favorito de senderismo, Criss se arrodilló y le pidió a Sofi que fuera su para siempre.",
       icon: "💍"
     },
     {
       year: "2026",
-      title: "Our Wedding",
-      description: "And now, we're excited to celebrate our love with all of you as we begin this beautiful journey as husband and wife.",
+      title: "Nuestra Boda",
+      description: "Y ahora, estamos emocionados de celebrar nuestro amor con todas nuestras personas favoritas mientras comenzamos este hermoso viaje como esposo y esposa.",
       icon: "💒"
     }
   ];
@@ -57,10 +57,10 @@ const OurStory = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-4">
-            Our Love Story
+            Nuestra Historia de Amor
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Every love story is beautiful, but ours is our favorite
+            Cada historia de amor es hermosa, pero la nuestra es nuestra favorita
           </p>
         </motion.div>
 
@@ -123,7 +123,7 @@ const OurStory = () => {
           className="text-center mt-16"
         >
           <blockquote className="text-2xl font-serif text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage."
+            "Ser profundamente amado por alguien te da fuerza, mientras que amar profundamente a alguien te da valor."
           </blockquote>
           <cite className="block mt-4 text-gray-500 font-medium">- Lao Tzu</cite>
         </motion.div>

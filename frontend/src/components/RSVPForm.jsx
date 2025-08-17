@@ -39,7 +39,7 @@ const RSVPForm = () => {
     
     if (!formData.name.trim()) {
       toast({
-        title: "Please enter your name",
+        title: "Por favor ingresa tu nombre",
         variant: "destructive"
       });
       return;
@@ -47,7 +47,7 @@ const RSVPForm = () => {
 
     if (formData.attending === null) {
       toast({
-        title: "Please let us know if you're attending",
+        title: "Por favor déjanos saber si vas a asistir",
         variant: "destructive"
       });
       return;
@@ -66,8 +66,8 @@ const RSVPForm = () => {
       if (response.status === 200) {
         // Success
         toast({
-          title: "RSVP Submitted!",
-          description: `Thank you ${formData.name}! We've received your response.`,
+          title: "¡Confirmación Enviada!",
+          description: `¡Gracias ${formData.name}! Hemos recibido tu respuesta.`,
         });
         
         // Reset form
@@ -79,26 +79,26 @@ const RSVPForm = () => {
       }
       
     } catch (error) {
-      console.error('RSVP submission error:', error);
+      console.error('Error en envío de confirmación:', error);
       
       // Handle different error types
       if (error.response) {
-        const errorMessage = error.response.data?.error || 'Failed to submit RSVP';
+        const errorMessage = error.response.data?.error || 'Error al enviar confirmación';
         toast({
-          title: "Submission Failed",
+          title: "Error en el Envío",
           description: errorMessage,
           variant: "destructive"
         });
       } else if (error.request) {
         toast({
-          title: "Connection Error",
-          description: "Please check your internet connection and try again.",
+          title: "Error de Conexión",
+          description: "Por favor revisa tu conexión a internet e intenta nuevamente.",
           variant: "destructive"
         });
       } else {
         toast({
           title: "Error",
-          description: "An unexpected error occurred. Please try again.",
+          description: "Ocurrió un error inesperado. Por favor intenta nuevamente.",
           variant: "destructive"
         });
       }
@@ -118,10 +118,10 @@ const RSVPForm = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-4">
-            Will You Join Us?
+            ¿Nos Acompañarás?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Your presence would make our special day even more meaningful
+            Tu presencia haría nuestro día especial aún más significativo
           </p>
         </motion.div>
 
@@ -135,14 +135,14 @@ const RSVPForm = () => {
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-rose-100">
             <div className="text-center mb-8">
               <Heart className="w-12 h-12 text-rose-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-serif text-gray-800">RSVP</h3>
+              <h3 className="text-2xl font-serif text-gray-800">Confirmación de Asistencia</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-gray-700 font-medium">
-                  Your Name *
+                  Tu Nombre *
                 </Label>
                 <Input
                   id="name"
@@ -150,7 +150,7 @@ const RSVPForm = () => {
                   type="text"
                   value={formData.name}
                   onChange={handleInputChange}
-                  placeholder="Enter your full name"
+                  placeholder="Ingresa tu nombre completo"
                   className="border-gray-200 focus:border-rose-500 focus:ring-rose-500"
                   disabled={isSubmitting}
                 />
@@ -159,7 +159,7 @@ const RSVPForm = () => {
               {/* Attendance Selection */}
               <div className="space-y-4">
                 <Label className="text-gray-700 font-medium">
-                  Will you be attending? *
+                  ¿Vas a asistir? *
                 </Label>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button
@@ -176,7 +176,7 @@ const RSVPForm = () => {
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">✓</div>
-                      <div className="font-medium">Yes, I'll be there!</div>
+                      <div className="font-medium">¡Sí, estaré ahí!</div>
                     </div>
                   </motion.button>
 
@@ -194,7 +194,7 @@ const RSVPForm = () => {
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">✗</div>
-                      <div className="font-medium">Sorry, can't make it</div>
+                      <div className="font-medium">Lo siento, no podré ir</div>
                     </div>
                   </motion.button>
                 </div>
@@ -203,14 +203,14 @@ const RSVPForm = () => {
               {/* Comment Field */}
               <div className="space-y-2">
                 <Label htmlFor="comment" className="text-gray-700 font-medium">
-                  Additional Comments
+                  Comentarios Adicionales
                 </Label>
                 <Textarea
                   id="comment"
                   name="comment"
                   value={formData.comment}
                   onChange={handleInputChange}
-                  placeholder="Any special messages, dietary restrictions, or questions..."
+                  placeholder="Mensajes especiales, restricciones alimentarias, o preguntas..."
                   rows={4}
                   className="border-gray-200 focus:border-rose-500 focus:ring-rose-500 resize-none"
                   disabled={isSubmitting}
@@ -230,12 +230,12 @@ const RSVPForm = () => {
                   {isSubmitting ? (
                     <div className="flex items-center justify-center space-x-2">
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      <span>Sending...</span>
+                      <span>Enviando...</span>
                     </div>
                   ) : (
                     <div className="flex items-center justify-center space-x-2">
                       <Send size={18} />
-                      <span>Send RSVP</span>
+                      <span>Enviar Confirmación</span>
                     </div>
                   )}
                 </Button>
@@ -253,10 +253,10 @@ const RSVPForm = () => {
           className="text-center mt-12"
         >
           <p className="text-gray-600 text-sm">
-            Please respond by <strong>March 15, 2026</strong>
+            Por favor responde antes del <strong>15 de Marzo, 2026</strong>
           </p>
           <p className="text-gray-500 text-sm mt-2">
-            For questions, contact us at sofiandcriss@wedding.com
+            Para preguntas, contáctanos en sofiandcriss@wedding.com
           </p>
         </motion.div>
       </div>
