@@ -54,11 +54,11 @@ export const galleryImages = [
   },
   {
     id: 6,
-    url: "https://assets.mixkit.co/videos/preview/mixkit-couple-dancing-in-nature-4564-large.mp4",
+    url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjE0ZHV1aWh6dGw3cDJtYjVnN3d1ZHF4NzBuOHhiYjNxN3NiN2NkOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lZxzroU33typuU/giphy.gif",
     alt: "Baile de pareja",
     caption: "Bailando juntos por la vida",
-    description: "Este video captura la esencia de nuestra relación. Bailar juntos es una de nuestras actividades favoritas, y simboliza cómo nos movemos en armonía por la vida.",
-    type: "video"
+    description: "Este GIF captura la esencia de nuestra relación. Bailar juntos es una de nuestras actividades favoritas, y simboliza cómo nos movemos en armonía por la vida.",
+    type: "gif"
   },
   {
     id: 7,
