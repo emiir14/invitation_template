@@ -96,7 +96,7 @@ const EnvelopeAnimation = () => {
                 {weddingData.couple.bride} & {weddingData.couple.groom}
               </div>
               <div className="text-sm text-gray-600 mb-4 font-light">
-                solicitan el placer de su presencia
+                solicitan el placer de tu presencia
               </div>
               <div className="text-xl font-medium text-rose-600 mb-2">
                 {weddingData.date.formatted}
@@ -199,7 +199,7 @@ const EnvelopeAnimation = () => {
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          {isOpened ? 'Haz clic en el sobre para cerrar' : 'Haz clic en el sobre para revelar nuestra invitación'}
+          {isOpened ? 'Hace click en el sobre para cerrar' : 'Hace click en el sobre para revelar nuestra invitación'}
         </motion.p>
         <motion.div
           className="mt-3 text-white/70 text-2xl"

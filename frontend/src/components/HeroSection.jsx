@@ -22,14 +22,15 @@ const HeroSection = () => {
       {/* Dancing GIF Background */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
+          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-90"
           style={{
-            backgroundImage: `url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWF4cWdkZHBhNXB4ZjBxbXJ3eW93ZWk5ZjI5cHFwbXNlbnNrdGdjZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26FLgGTPUDH6UGAbm/giphy.gif')`,
+            backgroundImage: `url('https://media1.tenor.com/m/77mG1IeBjM0AAAAd/prerana-vikram-aditya.gif')`,
             filter: 'blur(1px) brightness(0.7)'
           }}
         />
         {/* Gradient overlay to ensure readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-300/85 via-pink-300/85 to-orange-200/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-200/20 via-gray-100/20 to-blue-100/10"></div>
+
       </div>
 
       {/* Particle Background - Higher z-index to float above background */}

@@ -118,7 +118,7 @@ const RSVPForm = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-4">
-            ¿Nos Acompañarás?
+            ¿Nos Acompañás?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Tu presencia haría nuestro día especial aún más significativo
