@@ -62,6 +62,14 @@ export const galleryImages = [
   },
   {
     id: 7,
+    url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDJ5MXptMjJ2czhjZWV5ZWFkbmRoZDNuaXJ2MW1laDJnMGNkbHA1OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlL6eH6eEqMjEha/giphy.gif",
+    alt: "Celebración de amor",
+    caption: "Celebrando nuestro amor",
+    description: "Un momento de pura felicidad y celebración. Esta animación representa la alegría y emoción que sentimos al compartir nuestra historia de amor con todos ustedes.",
+    type: "gif"
+  },
+  {
+    id: 8,
     url: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80",
     alt: "Baile de boda",
     caption: "Nuestro primer baile",
