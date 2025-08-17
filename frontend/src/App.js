@@ -7,6 +7,7 @@ import OurStory from "./components/OurStory";
 import PhotoGallery from "./components/PhotoGallery";
 import RSVPForm from "./components/RSVPForm";
 import Footer from "./components/Footer";
+import MusicPlayer from "./components/MusicPlayer";
 import { Toaster } from "./components/ui/toaster";
 
 const WeddingInvitation = () => {
@@ -18,6 +19,7 @@ const WeddingInvitation = () => {
       <PhotoGallery />
       <RSVPForm />
       <Footer />
+      <MusicPlayer />
       <Toaster />
     </div>
   );

@@ -20,8 +20,8 @@ const Footer = () => {
               <span className="text-2xl font-serif">Sofi & Criss</span>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              We can't wait to celebrate this special day with our favorite people. 
-              Your presence in our lives means the world to us.
+              No podemos esperar a celebrar este día especial con nuestras personas favoritas. 
+              Su presencia en nuestras vidas significa el mundo para nosotros.
             </p>
           </motion.div>
 
@@ -33,7 +33,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h3 className="text-xl font-semibold mb-6 text-rose-300">Get In Touch</h3>
+            <h3 className="text-xl font-semibold mb-6 text-rose-300">Ponte en Contacto</h3>
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-3">
                 <Mail className="w-5 h-5 text-rose-400" />
@@ -45,7 +45,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center justify-center space-x-3">
                 <MapPin className="w-5 h-5 text-rose-400" />
-                <span className="text-gray-300">Location TBA</span>
+                <span className="text-gray-300">Ubicación Por Anunciar</span>
               </div>
             </div>
           </motion.div>
@@ -58,15 +58,15 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-center md:text-right"
           >
-            <h3 className="text-xl font-semibold mb-6 text-rose-300">Wedding Details</h3>
+            <h3 className="text-xl font-semibold mb-6 text-rose-300">Detalles de la Boda</h3>
             <div className="space-y-3">
-              <p className="text-2xl font-serif text-rose-200">April 15, 2026</p>
-              <p className="text-gray-300">Saturday</p>
+              <p className="text-2xl font-serif text-rose-200">15 de Abril, 2026</p>
+              <p className="text-gray-300">Sábado</p>
               <p className="text-sm text-gray-400 mt-4">
-                Please RSVP by March 15, 2026
+                Por favor confirma antes del 15 de Marzo, 2026
               </p>
               <p className="text-sm text-gray-400">
-                More details to follow
+                Más detalles próximamente
               </p>
             </div>
           </motion.div>
@@ -82,7 +82,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0"
             >
-              © 2025 Sofi & Criss Wedding. Made with love.
+              © 2025 Boda de Sofi & Criss. Hecho con amor.
             </motion.p>
 
             {/* Floating Hearts Animation */}
