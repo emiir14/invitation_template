@@ -17,7 +17,7 @@ const Footer = () => {
           >
             <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
               <Heart className="w-8 h-8 text-rose-400" />
-              <span className="text-2xl font-serif">Sofi & Criss</span>
+              <span className="text-2xl font-serif">Sofi & Fede</span>
             </div>
             <p className="text-gray-300 leading-relaxed">
               No podemos esperar a celebrar este día especial con nuestras personas favoritas. 
@@ -37,7 +37,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-3">
                 <Mail className="w-5 h-5 text-rose-400" />
-                <span className="text-gray-300">sofiandcriss@wedding.com</span>
+                <span className="text-gray-300">sofiandfede@wedding.com</span>
               </div>
               <div className="flex items-center justify-center space-x-3">
                 <Phone className="w-5 h-5 text-rose-400" />
@@ -82,7 +82,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0"
             >
-              © 2025 Boda de Sofi & Criss. Hecho con amor.
+              © 2025 Boda de Sofi & Fede. Hecho con amor.
             </motion.p>
 
             {/* Floating Hearts Animation */}

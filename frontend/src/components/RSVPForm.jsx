@@ -256,7 +256,7 @@ const RSVPForm = () => {
             Por favor responde antes del <strong>15 de Marzo, 2026</strong>
           </p>
           <p className="text-gray-500 text-sm mt-2">
-            Para preguntas, contáctanos en sofiandcriss@wedding.com
+            Para preguntas, contáctanos en sofiandfede@wedding.com
           </p>
         </motion.div>
       </div>

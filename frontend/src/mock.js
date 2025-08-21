@@ -3,7 +3,7 @@
 export const weddingData = {
   couple: {
     bride: "Sofi",
-    groom: "Criss"
+    groom: "Fede"
   },
   date: {
     raw: new Date(2026, 3, 15), // 15 de abril, 2026

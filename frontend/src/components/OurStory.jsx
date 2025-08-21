@@ -30,7 +30,7 @@ const OurStory = () => {
     {
       year: "2024",
       title: "La Propuesta",
-      description: "Bajo el cielo estrellado en nuestro lugar favorito de senderismo, Criss se arrodilló y le pidió a Sofi que fuera su para siempre.",
+      description: "Bajo el cielo estrellado en nuestro lugar favorito de senderismo, Fede se arrodilló y le pidió a Sofi que fuera su para siempre.",
       icon: "💍"
     },
     {
