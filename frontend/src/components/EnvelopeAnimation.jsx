@@ -51,7 +51,7 @@ const EnvelopeSiteOpener = ({ children }) => {
               <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-t from-amber-200 to-amber-300 shadow-inner"></div>
               
               {/* Envelope Content Peek */}
-              <div className="absolute inset-3 bg-gradient-to-br from-white to-gray-50 shadow-inner flex items-center justify-center border border-gray-100"
+              <div className="absolute top-12 left-3 right-3 bottom-3 bg-gradient-to-br from-white to-gray-50 shadow-inner flex items-center justify-center border border-gray-100"
                    style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.06), inset 0 -1px 2px rgba(0,0,0,0.04)' }}>
                 <div className="text-center">
                   <div className="text-4xl mb-3 filter drop-shadow-sm">💌</div>
