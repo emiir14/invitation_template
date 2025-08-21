@@ -56,7 +56,7 @@ const EnvelopeSiteOpener = ({ children }) => {
                 <div className="text-center">
                   <div className="text-4xl mb-3 filter drop-shadow-sm">💌</div>
                   <div className="text-amber-700 text-base font-serif font-medium tracking-wide">
-                    {isOpened ? "Abriendo..." : "Invitación al casamiento"}
+                    {isOpened ? "Abriendo..." : "Sofi & Fede"}
                   </div>
                   <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent mt-2 mx-auto"></div>
                 </div>
