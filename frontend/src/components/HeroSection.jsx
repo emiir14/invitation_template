@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
-import EnvelopeAnimation from './EnvelopeAnimation';
 import ParticleBackground from './ParticleBackground';
 import WeddingCountdown from './WeddingCountdown';
 import { weddingData } from '../mock';
@@ -30,7 +29,6 @@ const HeroSection = () => {
         />
         {/* Gradient overlay to ensure readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-200/20 via-gray-100/20 to-blue-100/10"></div>
-
       </div>
 
       {/* Particle Background - Higher z-index to float above background */}
@@ -40,40 +38,62 @@ const HeroSection = () => {
       
       {/* Content - Highest z-index */}
       <div className="relative z-20 container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-          {/* Left Side - Wedding Details */}
+        <div className="flex items-center justify-center min-h-screen">
+          {/* Centered Wedding Details */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-center lg:text-left space-y-8"
+            className="text-center space-y-8 max-w-6xl mx-auto"
           >
             <div>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-white/95 text-lg font-light tracking-wide mb-4 drop-shadow-sm"
+                className="text-white/95 text-lg font-light tracking-wide mb-6 drop-shadow-sm"
               >
-                Estás Invitado a Celebrar
+                Estás invitado a Celebrar
               </motion.p>
               
-              <motion.h1
+              {/* Horizontal Names Layout */}
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.7 }}
-                className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight drop-shadow-lg"
+                className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0 mb-6"
               >
-                {weddingData.couple.bride}
-                <span className="block text-3xl md:text-4xl font-light my-2">&</span>
-                {weddingData.couple.groom}
-              </motion.h1>
+                <motion.h1
+                  className="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-none drop-shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {weddingData.couple.bride}
+                </motion.h1>
+                
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 1.0 }}
+                  className="text-4xl md:text-6xl font-light text-white/90 drop-shadow-lg"
+                >
+                  &
+                </motion.span>
+                
+                <motion.h1
+                  className="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-none drop-shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {weddingData.couple.groom}
+                </motion.h1>
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="text-white/90 text-xl font-light drop-shadow-sm"
+                className="text-white/90 text-2xl font-light drop-shadow-sm"
               >
                 se van a casar
               </motion.p>
@@ -84,25 +104,23 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
-              className="space-y-6"
+              className="space-y-8"
             >
-              <div className="flex items-center justify-center lg:justify-start space-x-4">
+              <div className="flex items-center justify-center space-x-4">
                 <div className="bg-white/25 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                  <Calendar className="w-6 h-6 text-white" />
+                  <Calendar className="w-7 h-7 text-white" />
                 </div>
                 <div className="text-white drop-shadow-sm">
-                  <p className="text-2xl font-medium">{weddingData.date.formatted}</p>
-                  <p className="text-lg opacity-90">{weddingData.date.day}</p>
+                  <p className="text-2xl font-medium">15 de Abril, 2026 - Sábado</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-center lg:justify-start space-x-4">
+              <div className="flex items-center justify-center space-x-4">
                 <div className="bg-white/25 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                  <MapPin className="w-6 h-6 text-white" />
+                  <MapPin className="w-7 h-7 text-white" />
                 </div>
                 <div className="text-white drop-shadow-sm">
-                  <p className="text-lg font-medium">{weddingData.venue.name}</p>
-                  <p className="opacity-90">{weddingData.venue.address}</p>
+                  <p className="text-xl font-medium">General Paz 123</p>
                 </div>
               </div>
             </motion.div>
@@ -125,16 +143,6 @@ const HeroSection = () => {
                 Confirmar Asistencia
               </motion.button>
             </motion.div>
-          </motion.div>
-
-          {/* Right Side - Enhanced Envelope Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="flex justify-center"
-          >
-            <EnvelopeAnimation />
           </motion.div>
         </div>
 

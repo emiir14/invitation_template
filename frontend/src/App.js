@@ -9,6 +9,7 @@ import RSVPForm from "./components/RSVPForm";
 import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
 import { Toaster } from "./components/ui/toaster";
+import EnvelopeSiteOpener from "./components/EnvelopeAnimation";
 
 const WeddingInvitation = () => {
   return (
@@ -19,7 +20,6 @@ const WeddingInvitation = () => {
       <PhotoGallery />
       <RSVPForm />
       <Footer />
-      <MusicPlayer />
       <Toaster />
     </div>
   );
@@ -29,9 +29,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<WeddingInvitation />} />
-        </Routes>
+        <EnvelopeSiteOpener>
+          <Routes>
+            <Route path="/" element={<WeddingInvitation />} />
+          </Routes>
+        </EnvelopeSiteOpener>
+        {/* Music Player outside envelope wrapper - always visible */}
+        <MusicPlayer />
       </BrowserRouter>
     </div>
   );
