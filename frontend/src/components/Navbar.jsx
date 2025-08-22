@@ -22,11 +22,23 @@ const Navbar = () => {
   ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Close mobile menu first
     setIsMobileMenuOpen(false);
+    
+    // Use requestAnimationFrame to ensure smooth scrolling after state update
+    requestAnimationFrame(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        // Calculate the position to scroll to (accounting for navbar height)
+        const offsetTop = element.offsetTop - 80;
+        
+        // Scroll to the element
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
   };
 
   return (
@@ -44,8 +56,9 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div 
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 cursor-pointer"
               whileHover={{ scale: 1.05 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <Heart className={`w-6 h-6 ${isScrolled ? 'text-rose-500' : 'text-white'}`} />
               <span className={`font-serif text-xl ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
@@ -96,7 +109,7 @@ const Navbar = () => {
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-gray-700 font-medium hover:text-rose-500 transition-colors duration-200"
+                className="block w-full text-left text-gray-700 font-medium hover:text-rose-500 transition-colors duration-200 py-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ 
                   opacity: isMobileMenuOpen ? 1 : 0, 
